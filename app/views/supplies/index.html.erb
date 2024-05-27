@@ -1,6 +1,11 @@
 <h1>Supplies</h1>
 <ul>
 <% @supplies.each do |supply| %>
-<li><%= supply.name %> - <%= supply.description %> - <%= supply.price %> - <%= supply.quantity %></li>
+<li>
+<p><%= supply.name %> - <%= supply.description %> - <%= supply.price %> - <%= supply.quantity %></p>
+<img style="width: 300px" src="<%= supply.img_url %>" alt="">
+</li>
 <% end %>
 </ul>
+
+<%= link_to "Add Supply", new_supply_path %>
