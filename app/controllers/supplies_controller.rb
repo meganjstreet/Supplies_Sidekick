@@ -20,8 +20,8 @@ class SuppliesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @supply = Supply.find(params[:id])
-    
   end
 
   private
