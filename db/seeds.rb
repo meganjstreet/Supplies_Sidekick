@@ -14,9 +14,10 @@ User.destroy_all
 
 puts "Making some supplies seeds"
 
-user = User.new(first_name: "Meg", last_name: "Street", address: "19 Kevinor Court", email: "meganjstreet@gmail.com", password:"secret")
-user2 = User.new(first_name: "Nolu", last_name: "Ncamiso", address: "Vibes City", email: "nolu@lewagon.com", password:"secret2")
+user = User.new(first_name: "Meg", last_name: "Street", address: "19 Kevinor Court", email: "meganjstreet@gmail.com", password: "secret")
+user2 = User.new(first_name: "Nolu", last_name: "Ncamiso", address: "Vibes City", email: "nolu@lewagon.com", password: "secret2")
 user.save!
+user2.save!
 
 # Supply.create(name: "Wood Planks", description: "1000 wooden planks", address: "123 Avenue", img_url:"https://housing.com/news/wp-content/uploads/2023/04/What-is-timber-wood-and-which-are-the-best-types-f.jpg", price:100, quantity:100, user: user)
 # Supply.create(name: "Paint", description: "200 buckets of paint", address: "666 Street", img_url:"https://www.builders.co.za/media/sys-master%2Froot%2Fh39%2Fh3f%2F12683974639646%2F99-423601-Straight+on_large", price:69, quantity:2, user: user2 )

@@ -1,4 +1,4 @@
-<h1><%= @supply.name %></h1>
+<h3><%= @supply.name %></h3>
 <h2>Posted by <%= @supply.user.first_name %></h2>
 <%= cl_image_tag @supply.photo.key, width: 300, height: 300 %>
 <p><%= @supply.description %></p>
@@ -11,14 +11,22 @@
 
 
 <% if @user === @supply.user %>
-  <% @supply.offers.each do |offer| %>
-  <div>
-
-    <p>
-    <%= offer.user.first_name %> offered for <%= offer.amount %>, details: <%= offer.details %>, status: <%= offer.status %>
-    </p>
-    <%= link_to "Accept", accept_offer_path(offer), data: {turbo_method: :patch} %>
-    <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch} %>
-  </div>
+  <h3>Offers on your Supply</h3>
+  <% if @supply.offers.count == 0 %>
+    <div class="alert alert-warning">
+      You don't have any offers on this supply yet!
+    </div>
+  <% else %>
+    <% @supply.offers.each do |offer| %>
+    <div class="card mb-3 p-3">
+      <p>
+      <%= offer.user.first_name %> offered for <%= offer.amount %>, details: <%= offer.details %>, status: <%= offer.status %>
+      </p>
+      <div class="offer-buttons d-flex justify-content-between">
+        <%= link_to "Accept", accept_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-warning" %>
+        <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-warning" %>
+      </div>
+    </div>
+    <% end %>
   <% end %>
 <% end %>
