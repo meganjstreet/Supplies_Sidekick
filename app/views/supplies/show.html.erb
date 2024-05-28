@@ -1,0 +1,24 @@
+<h1><%= @supply.name %></h1>
+<h2>Posted by <%= @supply.user.first_name %></h2>
+<img style="width: 300px" src="<%= @supply.img_url %>" alt="">
+<p><%= @supply.description %></p>
+<p>Price: <%= @supply.price %></p>
+<p>Quantity: <%= @supply.quantity %></p>
+
+<% if @user != @supply.user %>
+<%= link_to "Make an offer!", new_supply_offer_path(@supply) %>
+<% end %>
+
+
+<% if @user === @supply.user %>
+  <% @supply.offers.each do |offer| %>
+  <div>
+
+    <p>
+    <%= offer.user.first_name %> offered for <%= offer.amount %>, details: <%= offer.details %>, status: <%= offer.status %>
+    </p>
+    <%= link_to "Accept", accept_offer_path(offer), data: {turbo_method: :patch} %>
+    <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch} %>
+  </div>
+  <% end %>
+<% end %>
