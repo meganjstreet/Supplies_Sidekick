@@ -1,0 +1,71 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative
+
+}
+
+.card-category .card-text a{
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    color: $warning;
+  }
+}
+
+.card-category .card-text p {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 16px;
+  background-color: $warning;
+  padding: 0 4px;
+  border-radius: 4px;
+
+}
+
+.card-offer {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-offer img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-offer h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-offer p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-offer .card-offer-infos {
+  padding: 16px;
+}
+
+
