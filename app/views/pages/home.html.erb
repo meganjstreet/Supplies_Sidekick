@@ -1,48 +1,36 @@
-<div class="cantainer">
-  <h2>Supplies side_kick</h2>
+<div class="banner mb-4">
+  <div>
+    <h2>Quicky get your supplies</h2>
+<p><strong>"Road to success is always under Construction"</strong></p>
+</div>
+</div>
+<div class="container mb-5">
+
   <form class="form-inline my-2 my-lg-0 d-flex">
     <input type="submit">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <%= link_to "Add Listing"%>
   </form>
 </div>
 
-<div class="container">
-  <h4>Quicky get your supplies</h4>
-<p>"Road to success is always under Construction"</p>
+<div class="container mt-1">
+
 <a href="#" class="card-link"></a>
   <h3>Latest Supplies </h3>
 
-<div class="card-group">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">building small bricks</h5>
-      <img src="..." class="card-img-top" alt="...">
-      <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
-      <a href="#" class="card-link">Add listing</a>
-    <a href="#" class="card-link">buy</a>
-  </div>
-  </div>
 
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Strong steel</h5>
-      <img src="..." class="card-img-top" alt="...">
-      <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
-      <a href="#" class="card-link">Add listing</a>
-    <a href="#" class="card-link">buy</a>
-  </div>
-  </div>
+<div class="cards-container">
 
+  <% @supplies.each do |supply|%>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">fine sand</h5>
-      <img src="..." class="card-img-top" alt="...">
-      <p class="card-text"><small class="text-muted">Last updated 20 mins ago</small></p>
-      <a href="#" class="card-link">Add listing</a>
-    <a href="#" class="card-link">buy</a>
-      </div>
-    </div>
+      <h5 class="card-title"><%= supply.name%></h5>
+      <img src=<%= supply.img_url%> class="card-img-top" alt="...">
+      <p class="card-text"><small class="text-muted"><%= supply.description %></small></p>
+      <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100"%>
+
+  </div>
+  </div>
+  <% end %>
+
   </div>
 </div>
-<
