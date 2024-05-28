@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       patch :decline
     end
   end
+
+  get "dashboard", to: "pages#dashboard"
   # Defines the root path route ("/")
   # root "posts#index"
 end
