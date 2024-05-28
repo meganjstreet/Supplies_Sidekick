@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_27_133141) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_28_094405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "offers", force: :cascade do |t|
+    t.integer "amount"
+    t.string "details"
+    t.string "status", default: "pending"
+    t.bigint "user_id", null: false
+    t.bigint "supply_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supply_id"], name: "index_offers_on_supply_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
+  end
 
   create_table "supplies", force: :cascade do |t|
     t.string "name"
@@ -42,5 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_133141) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offers", "supplies"
+  add_foreign_key "offers", "users"
   add_foreign_key "supplies", "users"
 end
