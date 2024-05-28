@@ -8,8 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Offer.destroy_all
 Supply.destroy_all
 User.destroy_all
+
 puts "Making some supplies seeds"
 
 user = User.new(first_name: "Meg", last_name: "Street", address: "19 Kevinor Court", email: "meganjstreet@gmail.com", password:"secret")
