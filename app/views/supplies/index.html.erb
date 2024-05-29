@@ -11,7 +11,14 @@
   <li>
     <a href="" class="card">
       <% @supplies.each do |supply| %>
-        <img src="<%= supply.img_url %>" class="card__image" alt="" />
+       <% if supply.photo.attached? %>
+        <div class="card__image">
+          <%= cl_image_tag supply.photo.key, width: 100, height: 100 %>
+        </div>
+      <% else %>
+        <img class="card-img-top" src=<%= @supply.img_url %> alt="">
+      <% end %>
+        
         <div class="card__overlay">
           <div class="card__header">
             <div class="card__header-text">
@@ -20,6 +27,9 @@
           </div>
           <p class="card__description"><%= supply.description %></p>
         </div>
+        <button><%= link_to "View details", supply_path(supply) %></button>
       <% end %>
     </a>
   </li>
+
+

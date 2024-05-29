@@ -16,6 +16,10 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "address" }%>
+    <%= f.input :avatar, as: :file,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "avatar" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
