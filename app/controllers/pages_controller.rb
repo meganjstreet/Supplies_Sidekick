@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @supplies = Supply.all
+    @latest_supplies = Supply.all[-4..]
   end
 
   def dashboard

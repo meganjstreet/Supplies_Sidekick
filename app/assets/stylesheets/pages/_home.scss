@@ -1,11 +1,25 @@
 
 .banner {
-  background-image: url("homepage-banner");
-  height: 20vh;
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("homepage-banner");
+  height: 30vh;
   background-position: center;
   background-size: cover;
   display: flex;
   color: white;
   justify-content: center;
   align-items: center;
+}
+
+.input-group input{
+  border-radius: 20px;
+}
+
+.input-group-append {
+
+  .btn {
+    border-radius: 0 20px 20px 0;
+  }
+  .btn:hover {
+    color:white;
+  }
 }
