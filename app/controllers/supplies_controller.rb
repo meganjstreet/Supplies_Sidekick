@@ -2,6 +2,12 @@ class SuppliesController < ApplicationController
   before_action :authenticate_user!
   def index
     @supplies = Supply.all
+    @markers = @supplies.geocoded.map do |supply|
+      {
+        lat: supply.latitude,
+        lng: supply.longitude
+      }
+    end
   end
 
   def new
