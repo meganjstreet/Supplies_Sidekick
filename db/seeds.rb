@@ -16,6 +16,7 @@ puts "Making some supplies seeds"
 
 user = User.new(first_name: "Meg", last_name: "Street", address: "19 Kevinor Court", email: "meganjstreet@gmail.com", password: "secret")
 user2 = User.new(first_name: "Nolu", last_name: "Ncamiso", address: "Vibes City", email: "nolu@lewagon.com", password: "secret2")
+
 user.save!
 user2.save!
 
