@@ -1,1 +1,11 @@
 
+.banner {
+  background-image: url("homepage-banner");
+  height: 20vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}

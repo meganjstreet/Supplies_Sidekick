@@ -3,14 +3,14 @@
 
 <ul class="cards">
   <li>
-    <a href="" class="card">
       <% @supplies.each do |supply| %>
+    <a href="" class="card">
        <% if supply.photo.attached? %>
-        <div class="card__image">
+        <div class="card__image" >
           <%= cl_image_tag supply.photo.key, width: 100, height: 100 %>
         </div>
       <% else %>
-        <img class="card-img-top" src=<%= supply.img_url %> alt="">
+        <img class="card__image" src=<%= supply.img_url %> alt="">
       <% end %>
 
         <div class="card__overlay">

@@ -19,17 +19,17 @@
 
 
 <div class="cards-container">
-
+  <div class="row">
   <% @supplies.each do |supply|%>
-  <div class="card">
+  <div class="card col-lg-4 col-12 mb-3">
     <div class="card-body">
       <h5 class="card-title"><%= supply.name%></h5>
       <% if supply.photo.attached? %>
-        <div class="card-img-top">
+        <div class="card__image">
           <%= cl_image_tag supply.photo.key, width: 100, height: 100 %>
         </div>
         <% else %>
-          <img src=<%= supply.img_url %> class="card-img-top">
+          <img src=<%= supply.img_url %> class="card__image">
         <% end %>
 
       <p class="card-text"><small class="text-muted"><%= supply.description %></small></p>
@@ -40,4 +40,5 @@
   <% end %>
 
   </div>
+</div>
 </div>
