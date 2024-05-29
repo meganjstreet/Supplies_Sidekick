@@ -6,12 +6,21 @@
 <% else %>
   <div class="row d-flex justify-content-center">
   <% @supplies.each do |supply| %>
-    <div class="card-category col-lg-3 col-md-6 m-3 p-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path supply.photo.key %>')">
-      <div class="card-text">
-        <%= link_to supply.name, supply_path(supply) %>
-        <p><%= supply.offers.count %> offers</p>
-      </div>
-    </div>
+    <% if supply.photo.attached? %>
+        <div class="card-category col-lg-3 col-md-6 m-3 p-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path supply.photo.key %>')">
+          <div class="card-text">
+            <%= link_to supply.name, supply_path(supply) %>
+            <p><%= supply.offers.count %> offers</p>
+          </div>
+        </div>
+      <% else %>
+         <div class="card-category col-lg-3 col-md-6 m-3 p-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= supply.img_url %>')">
+          <div class="card-text">
+            <%= link_to supply.name, supply_path(supply) %>
+            <p><%= supply.offers.count %> offers</p>
+          </div>
+        </div>
+      <% end %>
   <% end %>
   </div>
 <% end %>
