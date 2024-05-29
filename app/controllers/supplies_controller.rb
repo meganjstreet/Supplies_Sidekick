@@ -2,7 +2,7 @@ class SuppliesController < ApplicationController
   before_action :authenticate_user!
   def index
     @supplies = Supply.all
-  
+
   end
 
   def new
@@ -23,6 +23,7 @@ class SuppliesController < ApplicationController
   def show
     @user = current_user
     @supply = Supply.find(params[:id])
+    @offer = Offer.new
   end
 
   private
