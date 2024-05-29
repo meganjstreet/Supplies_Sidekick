@@ -1,24 +1,44 @@
-<h1><%= @supply.name %></h1>
+<h3><%= @supply.name %></h3>
 <h2>Posted by <%= @supply.user.first_name %></h2>
-<img style="width: 300px" src="<%= @supply.img_url %>" alt="">
-<p><%= @supply.description %></p>
-<p>Price: <%= @supply.price %></p>
-<p>Quantity: <%= @supply.quantity %></p>
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @supply.name%></h5>
+      <% if @supply.photo.attached? %>
+        <div class="card-img-top">
+          <%= cl_image_tag @supply.photo.key, width: 100, height: 100 %>
+        </div>
+      <% else %>
+<img class="card-img-top" src=<%= @supply.img_url %> alt="">
+<% end %>
+
+      <p class="card-text"><small class="text-muted"><%= @supply.description %></small></p>
+      
+
+  </div>
+  </div>
 
 <% if @user != @supply.user %>
-<%= link_to "Make an offer!", new_supply_offer_path(@supply) %>
+<%= link_to "Make an offer!", new_supply_offer_path(@supply), class: "btn btn-warning" %>
 <% end %>
 
 
 <% if @user === @supply.user %>
-  <% @supply.offers.each do |offer| %>
-  <div>
-
-    <p>
-    <%= offer.user.first_name %> offered for <%= offer.amount %>, details: <%= offer.details %>, status: <%= offer.status %>
-    </p>
-    <%= link_to "Accept", accept_offer_path(offer), data: {turbo_method: :patch} %>
-    <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch} %>
-  </div>
+  <h3>Offers on your Supply</h3>
+  <% if @supply.offers.count == 0 %>
+    <div class="alert alert-warning">
+      You don't have any offers on this supply yet!
+    </div>
+  <% else %>
+    <% @supply.offers.each do |offer| %>
+    <div class="card mb-3 p-3">
+      <p>
+      <%= offer.user.first_name %> offered for <%= offer.amount %>, details: <%= offer.details %>, status: <%= offer.status %>
+      </p>
+      <div class="offer-buttons d-flex justify-content-between">
+        <%= link_to "Accept", accept_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-warning" %>
+        <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-warning" %>
+      </div>
+    </div>
+    <% end %>
   <% end %>
 <% end %>
