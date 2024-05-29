@@ -20,10 +20,10 @@ user2 = User.new(first_name: "Nolu", last_name: "Ncamiso", address: "Vibes City"
 user.save!
 user2.save!
 
-# Supply.create(name: "Wood Planks", description: "1000 wooden planks", address: "123 Avenue", img_url:"https://housing.com/news/wp-content/uploads/2023/04/What-is-timber-wood-and-which-are-the-best-types-f.jpg", price:100, quantity:100, user: user)
-# Supply.create(name: "Paint", description: "200 buckets of paint", address: "666 Street", img_url:"https://www.builders.co.za/media/sys-master%2Froot%2Fh39%2Fh3f%2F12683974639646%2F99-423601-Straight+on_large", price:69, quantity:2, user: user2 )
-# Supply.create(name: "Nails", description: "Big pot of nails", address: "123 Avenue", img_url:"https://housing.com/news/wp-content/uploads/2023/04/What-is-timber-wood-and-which-are-the-best-types-f.jpg", price:888, quantity:4, user: user)
-# Supply.create(name: "Sand paper", description: "5 sheets of sandpaper", address: "999 Road", img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Schleifpapier_verschiedene_Sorten.jpg/800px-Schleifpapier_verschiedene_Sorten.jpg", price:230, quantity:5, user: user2)
-# Supply.create(name: "Screwdriver set", description: "screwdriver set in good condition", address: "345 Burb", img_url: "https://www.bobvila.com/wp-content/uploads/2017/04/Types_Of_Screwdrivers.jpg", price:30, quantity:3967, user: user)
+Supply.create(name: "Wood Planks", description: "1000 wooden planks", address: "123 Avenue", img_url:"https://housing.com/news/wp-content/uploads/2023/04/What-is-timber-wood-and-which-are-the-best-types-f.jpg", price:100, quantity:100, user: user)
+Supply.create(name: "Paint", description: "200 buckets of paint", address: "666 Street", img_url:"https://www.builders.co.za/media/sys-master%2Froot%2Fh39%2Fh3f%2F12683974639646%2F99-423601-Straight+on_large", price:69, quantity:2, user: user2 )
+Supply.create(name: "Nails", description: "Big pot of nails", address: "123 Avenue", img_url:"https://housing.com/news/wp-content/uploads/2023/04/What-is-timber-wood-and-which-are-the-best-types-f.jpg", price:888, quantity:4, user: user)
+Supply.create(name: "Sand paper", description: "5 sheets of sandpaper", address: "999 Road", img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Schleifpapier_verschiedene_Sorten.jpg/800px-Schleifpapier_verschiedene_Sorten.jpg", price:230, quantity:5, user: user2)
+Supply.create(name: "Screwdriver set", description: "screwdriver set in good condition", address: "345 Burb", img_url: "https://www.bobvila.com/wp-content/uploads/2017/04/Types_Of_Screwdrivers.jpg", price:30, quantity:3967, user: user)
 
-# puts "Supplies seeded!"
+puts "Supplies seeded!"

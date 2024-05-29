@@ -1,9 +1,14 @@
 <h1>Supplies</h1>
 <ul>
 <% @supplies.each do |supply| %>
+
 <li>
 <p><%= supply.name %> - <%= supply.description %> - <%= supply.price %> - <%= supply.quantity %> POSTED BY <%= supply.user.first_name %></p>
-<%= cl_image_tag supply.photo.key, height: 300, width: 400, crop: :fill %>
+<% if supply.photo.attached? %>
+  <%= cl_image_tag supply.photo.key, width: 300, height: 300 %>
+<% else %>
+  <img src=<%= supply.img_url %> alt="">
+<% end %>
 <button><%= link_to "View details", supply_path(supply) %></button>
 </li>
 <% end %>
