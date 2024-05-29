@@ -1,6 +1,7 @@
 <h3><%= @supply.name %></h3>
 <h2>Posted by <%= @supply.user.first_name %></h2>
-<div class="card">
+<div class="row d-flex justify-content-center">
+<div class="card col-8 ">
     <div class="card-body">
       <h5 class="card-title"><%= @supply.name%></h5>
       <% if @supply.photo.attached? %>
@@ -12,10 +13,11 @@
 <% end %>
 
       <p class="card-text"><small class="text-muted"><%= @supply.description %></small></p>
-      
+
 
   </div>
   </div>
+</div>
 
 <% if @user != @supply.user %>
 <%= link_to "Make an offer!", new_supply_offer_path(@supply), class: "btn btn-warning" %>
