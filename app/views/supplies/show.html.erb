@@ -1,12 +1,24 @@
 <h3><%= @supply.name %></h3>
 <h2>Posted by <%= @supply.user.first_name %></h2>
-<%= cl_image_tag @supply.photo.key, width: 300, height: 300 %>
-<p><%= @supply.description %></p>
-<p>Price: <%= @supply.price %></p>
-<p>Quantity: <%= @supply.quantity %></p>
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @supply.name%></h5>
+      <% if @supply.photo.attached? %>
+        <div class="card-img-top">
+          <%= cl_image_tag @supply.photo.key, width: 100, height: 100 %>
+        </div>
+      <% else %>
+<img class="card-img-top" src=<%= @supply.img_url %> alt="">
+<% end %>
+
+      <p class="card-text"><small class="text-muted"><%= @supply.description %></small></p>
+      
+
+  </div>
+  </div>
 
 <% if @user != @supply.user %>
-<%= link_to "Make an offer!", new_supply_offer_path(@supply) %>
+<%= link_to "Make an offer!", new_supply_offer_path(@supply), class: "btn btn-warning" %>
 <% end %>
 
 
