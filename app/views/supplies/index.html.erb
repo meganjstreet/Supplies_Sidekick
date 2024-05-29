@@ -21,7 +21,7 @@
           </div>
           <p class="card__description"><%= supply.description %></p>
         </div>
-        <button><%= link_to "View details", supply_path(supply) %></button>
+        <%= link_to "View details", supply_path(supply), class: "btn btn-warning text-white" %>
       <% end %>
     </a>
   </li>
