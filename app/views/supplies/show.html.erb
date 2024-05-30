@@ -52,7 +52,6 @@
         </div>
       <% else %>
         <% @supply.offers.each do |offer| %>
-          <% if offer.status == "pending" %>
           <div class="card-request mb-3 p-3">
             <div class="text-request">
             <div class="user-request d-flex">
@@ -75,7 +74,6 @@
               <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-danger text-white" %>
             </div>
           </div>
-          <% end %>
         <% end %>
       <% end %>
       </div>
