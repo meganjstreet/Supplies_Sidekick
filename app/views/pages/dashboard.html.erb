@@ -38,10 +38,14 @@
       <div class="card-offer mb-3">
       <img src="<%= offer.supply.img_url %>" />
       <div class="card-offer-infos">
-        <h2><%= offer.supply.name %></h2>
-        <p>Offer details: <%= offer.details %></p>
-        <p>Offer quantity: <%= offer.amount %></p>
-        <p>Status: <%= offer.status %></p>
+        <div class="offer-head">
+          <h2><%= offer.supply.name %></h2>
+          <p class="offer-status"><%= offer.status %></p>
+        </div>
+        <h3>OFFER DETAILS:</h3>
+        <p><%= offer.details %></p>
+        <h3>QTY:</h3>
+        <p><%= offer.amount %></p>
       </div>
     </div>
 
