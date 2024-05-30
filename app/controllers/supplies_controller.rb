@@ -1,8 +1,15 @@
 class SuppliesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @supplies = Supply.all
-
+    @supplies = Supply.geocoded
+    @markers = @supplies.map do |supply|
+      {
+        lat: supply.latitude,
+        lng: supply.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {supply: supply}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def new
