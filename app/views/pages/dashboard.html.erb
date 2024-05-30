@@ -35,8 +35,13 @@
   <% else %>
     <div class="row d-flex justify-content-center">
     <% @offers.each do |offer| %>
+
       <div class="card-offer mb-3">
-      <img src="<%= offer.supply.img_url %>" />
+      <% if offer.photo.attached? %>
+
+      <% else %>
+      <% end %>
+
       <div class="card-offer-infos">
         <div class="offer-head">
           <h2><%= offer.supply.name %></h2>
