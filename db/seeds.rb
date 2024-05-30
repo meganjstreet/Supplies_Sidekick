@@ -14,10 +14,10 @@ User.destroy_all
 
 puts "Making some supplies seeds"
 
-User.create(first_name: "Meg", last_name: "Street", address: "89 Geneva Drive, Camps Bay, Cape Town", email: "meganjstreet@gmail.com", password:"secret", avatar_url:"https://thumbs.dreamstime.com/b/construction-blueprint-5200849.jpg")
-User.create(first_name: "Nolu", last_name: "Ncamiso", address: "Gugulethu ny119 street no6", email: "nncamiso30108@gmail.com", password:"secret",avatar_url:"https://www.dreamstime.com/stock-photo-tired-construction-worker-wiping-forehead-site-image85305078.jpg")
-User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fphotos%2Fconstruction-engineer.html&psig=AOvVaw2DDwanjdZejcQhlPYgdHCj&ust=1717063824554000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMio_7XPsoYDFQAAAAAdAAAAABAJ.jpg")
-User.create(first_name: "Tools", last_name: "Mavalentiya", address: " Phillip village,Cape Town", email: "Athule@gmail.com", password:"secret", avatar_url:"https://thumbs.dreamstime.com/b/construction-blueprint-5200849.jpg")
+User.create(first_name: "Meg", last_name: "Street", address: "89 Geneva Drive, Camps Bay, Cape Town", email: "meganjstreet@gmail.com", password:"secret", avatar_url:"user.png")
+User.create(first_name: "Nolu", last_name: "Ncamiso", address: "Gugulethu ny119 street no6", email: "nncamiso30108@gmail.com", password:"secret",avatar_url:"profile.png")
+User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"profile(1).png")
+User.create(first_name: "Tools", last_name: "Mavalentiya", address: " Phillip village,Cape Town", email: "Athule@gmail.com", password:"secret", avatar_url:"tools.png")
 
 
 Supply.create(name: "Wood Planks", description: "1000 wooden planks", address: "1 Somerset Road, Green Point, Cape Town", img_url:"https://housing.com/news/wp-content/uploads/2023/04/What-is-timber-wood-and-which-are-the-best-types-f.jpg", price:100, quantity:100, user: User.find_by(first_name: "Meg"))
@@ -32,10 +32,10 @@ Supply.create(name: "Galvanised Hoop Iron", description: "Galvanised Hoop Iron s
 Supply.create(name: "PPR Pipes, Fittings and Coupling", description: "PPR Pipes, Fittings and Coupling set in good condition", address: "Jakes Gerwel Drive, Athlone, Cape Town", img_url: "pprpipes.jpg", price:189.99, quantity:2890, user: User.find_by(first_name: "Nolu"))
 
 Offer.create(amount: 750, details:"Can I have Wood Planks", user: User.find_by(first_name: "Nolu"), supply: Supply.find_by(name: "Wood Planks"))
-Offer.create(amount: 380, details:"Can I have White Paint", user: User.find_by(first_name: "Tools"), supply: Supply.find_by(name: "Paint"))
+Offer.create(amount: 380, details:"Can I have White Paint", user: User.find_by(first_name: "Meg"), supply: Supply.find_by(name: "Paint"))
 Offer.create(amount: 170, details:"Got Galvanised Hoop Iron, In a good condition", user: User.find_by(first_name: "Luvo"), supply: Supply.find_by(name:"Galvanised Hoop Iron"))
-Offer.create(amount: 700, details:"1 year old Scaffold hoists",user: User.find_by(first_name: "Nolu"), supply: Supply.find_by(name:" Scaffold hoists"))
-Offer.create(amount: 830, details:"Looking for PPR Pipes ,Fitting and Coupling for my New Bathroom",user: User.find_by(first_name:"Luvo"), supply: Supply.find_by(name: "PPR Pipes, Fittings and Coupling"))
+Offer.create(amount: 700, details:"1 year old Scaffold hoists", user: User.find_by(first_name: "Nolu"), supply: Supply.find_by(name:" Scaffold hoists"))
+Offer.create(amount: 830, details:"Looking for PPR Pipes ,Fitting and Coupling for my New Bathroom", user: User.find_by(first_name:"Luvo"), supply: Supply.find_by(name: "PPR Pipes, Fittings and Coupling"))
 
 
 puts "Supplies seeded!"
