@@ -1,34 +1,40 @@
-<div class="container mt-3">
-  <h3>All Supplies </h3>
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Looking for anything?" aria-label="Supply name" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-      <button class="btn btn-outline-warning" type="button">Button</button>
+<div style="width: 100vw; height: 40vh;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="container">
+
+  <div class="supplies-container m-3">
+    <h3>All Supplies </h3>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Looking for anything?" aria-label="Supply name" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-warning" type="button">Button</button>
+      </div>
     </div>
-  </div>
 
 
-  <div class="cards">
-    <% @supplies.each do |supply|%>
-    <div class="card-home">
-        <% if supply.photo.attached? %>
-          <div class="card-home-image">
-            <%= cl_image_tag supply.photo.key%>
+    <div class="cards">
+      <% @supplies.each do |supply|%>
+      <div class="card-home">
+          <% if supply.photo.attached? %>
+            <div class="card-home-image">
+              <%= cl_image_tag supply.photo.key%>
+            </div>
+          <% else %>
+              <img src=<%= supply.img_url.start_with?('http') ? supply.img_url : asset_path(supply.img_url) %> class="card-home-image">
+          <% end %>
+        <div class="card-home-body">
+          <div class="card-home-content">
+            <h5 class="card-home-title"><%= supply.name%></h5>
+            <p class="card-home-text"><%= supply.description %></p>
           </div>
-        <% else %>
-            <img src=<%= supply.img_url.start_with?('http') ? supply.img_url : asset_path(supply.img_url) %> class="card-home-image">
-        <% end %>
-      <div class="card-home-body">
-        <div class="card-home-content">
-          <h5 class="card-home-title"><%= supply.name%></h5>
-          <p class="card-home-text"><%= supply.description %></p>
-        </div>
-        <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100 text-white"%>
+          <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100 text-white"%>
 
+      </div>
+      </div>
+      <% end %>
     </div>
-    </div>
-    <% end %>
-
-
   </div>
+
 </div>
