@@ -10,9 +10,12 @@
       <% end %>
         <div class="card-show-body">
           <div class="card-show-content">
-            <div class="card-show-head d-flex justify-content-between mb-2">
-              <h5 class="card-show-title"><%= @supply.name%></h5>
-              <p class="btn btn-outline-warning">qty: <%= @supply.quantity %></p>
+            <div class="card-show-head mb-2">
+              <div>
+                <h5 class="card-show-title"><%= @supply.name%></h5>
+                <p><%= @supply.address %></p>
+              </div>
+              <p class="badge-qty">QTY: <%= @supply.quantity %></p>
             </div>
 
             <p class="card-show-text"><%= @supply.description %></p>
@@ -49,13 +52,26 @@
         </div>
       <% else %>
         <% @supply.offers.each do |offer| %>
-          <div class="card mb-3 p-3">
-            <p>
-            <%= offer.user.first_name %> offered for <%= offer.amount %>, details: <%= offer.details %>, status: <%= offer.status %>
-            </p>
-            <div class="offer-buttons d-flex justify-content-between">
-              <%= link_to "Accept", accept_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-warning" %>
-              <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-warning" %>
+          <div class="card-request mb-3 p-3">
+            <div class="text-request">
+            <div class="user-request d-flex">
+              <% if offer.user.photo.attached? %>
+                <div class="avatar-request">
+                  <%= cl_image_tag offer.user.photo.key, height: 30, width: 30, crop: :fill %>
+                </div>
+              <% else %>
+                <img class="avatar-request" src=<%= offer.user.avatar_url.start_with?('http') ? offer.user.avatar_url : asset_path(offer.user.avatar_url) %>/>
+              <% end %>
+              <%= offer.user.first_name + " " + offer.user.last_name + " (" + offer.user.email + ")"%>
+            </div>
+            <div class="details-request">
+              <p><%= offer.details %></p>
+              <p>QTY: <%= offer.amount %></p>
+            </div>
+            </div>
+            <div class="request-buttons">
+              <p><%= link_to "Accept", accept_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-success text-white" %></p>
+              <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-danger text-white" %>
             </div>
           </div>
         <% end %>
