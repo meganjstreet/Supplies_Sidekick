@@ -16,8 +16,9 @@ puts "Making some supplies seeds"
 
 User.create(first_name: "Meg", last_name: "Street", address: "89 Geneva Drive, Camps Bay, Cape Town", email: "meganjstreet@gmail.com", password:"secret", avatar_url:"user.png")
 User.create(first_name: "Nolu", last_name: "Ncamiso", address: "Gugulethu ny119 street no6", email: "nncamiso30108@gmail.com", password:"secret",avatar_url:"profile.png")
-User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"profile (1).png")
+User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"profile(1).png")
 User.create(first_name: "Tools", last_name: "Mavalentiya", address: " Phillip village,Cape Town", email: "Athule@gmail.com", password:"secret", avatar_url:"tools.png")
+
 
 Supply.create(name: "Wood Planks", description: "1000 wooden planks", address: "1 Somerset Road, Green Point, Cape Town", img_url:"https://housing.com/news/wp-content/uploads/2023/04/What-is-timber-wood-and-which-are-the-best-types-f.jpg", price:100, quantity:100, user: User.find_by(first_name: "Meg"))
 Supply.create(name: "Paint", description: "200 buckets of paint", address: "8 Buiten St, City Centre, Cape Town", img_url:"https://www.builders.co.za/media/sys-master%2Froot%2Fh39%2Fh3f%2F12683974639646%2F99-423601-Straight+on_large", price:69, quantity:2, user: User.find_by(first_name: "Nolu") )
