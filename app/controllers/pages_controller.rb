@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @latest_supplies = Supply.all[-4..]
+    @latest_supplies = Supply.order(created_at: :desc).limit(4) # Fetch the latest 4 supplies
   end
 
   def dashboard
