@@ -15,9 +15,9 @@ User.destroy_all
 puts "Making some supplies seeds"
 
 user = User.new(first_name: "Meg", last_name: "Street", address: "89 Geneva Drive, Camps Bay, Cape Town", email: "meganjstreet@gmail.com", password:"secret", avatar_url: "user.png")
-user2 = User.new(first_name: "Nolu", last_name: "Ncamiso", address: "Gugulethu, Cape Town", email: "nncamiso30108@gmail.com", password:"nolu-2024N",avatar_url: "user.jpg")
-user3 = User.new(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"luvos-2024", avatar_url: "user.jpg")
-user4 = User.new(first_name: "Tools", last_name: "Mavalentiya", address: " Phillip village,Cape Town", email: "Athule@gmail.com", password:"tools-2024", avatar_url: "user.jpg")
+user2 = User.new(first_name: "Nolu", last_name: "Ncamiso", address: "Gugulethu, Cape Town", email: "nncamiso30108@gmail.com", password:"nolu-2024N",avatar_url: "user.png")
+user3 = User.new(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"luvos-2024", avatar_url: "user.png")
+user4 = User.new(first_name: "Tools", last_name: "Mavalentiya", address: " Phillip village,Cape Town", email: "Athule@gmail.com", password:"tools-2024", avatar_url: "user.png")
 user.save!
 user2.save!
 user3.save!
