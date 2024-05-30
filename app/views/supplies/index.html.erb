@@ -45,7 +45,7 @@
   <% else %>
     <h3>Latest Supplies</h3>
     <div class="cards">
-      <% @supplies.each do |supply| %>
+      <% @latest_supplies.each do |supply| %>
         <div class="card-home">
           <% if supply.photo.attached? %>
             <div class="card-home-image">
@@ -66,6 +66,6 @@
     </div>
   <% end %>
 
-
+   
   </div>
 </div>
