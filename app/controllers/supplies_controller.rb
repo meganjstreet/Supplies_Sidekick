@@ -8,15 +8,18 @@ class SuppliesController < ApplicationController
       @supplies = Supply.geocoded
     end
 
-    @markers = @supplies.map do |supply|
-      {
-        lat: supply.latitude,
-        lng: supply.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {supply: supply}),
-        marker_html: render_to_string(partial: "marker")
-      }
+
+    @markers = @supplies.each_with_object([]) do |supply, markers|
+      if supply.geocode.present?
+      markers << {
+          lat: supply.geocode[0],
+          lng: supply.geocode[1],
+          info_window_html: render_to_string(partial: "info_window", locals: {supply: supply}),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
     end
-  end
+
 
   def new
     @supply = Supply.new

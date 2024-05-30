@@ -142,19 +142,13 @@
   display: flex;
   justify-content: space-between;
   border-radius: 12px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px 0px, rgba(0, 0, 0, 0.2) 0px 0px 1px 0px;
   overflow: hidden;
   background-color: $white;
 
-  .badge-qty {
-    background-color: $warning;
-    color: $white;
-    font-weight: 400;
-    padding: 4px 8px;
-    border-radius: 4px;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   }
-
-
 
   .card-show-image img, img{
     height: 100%;
@@ -163,8 +157,6 @@
   }
 
 }
-
-
 
 
 .card-show-body {
@@ -179,6 +171,7 @@
     justify-content: space-between;
     align-items: center;
     color: $warning;
+
   }
 }
 
@@ -198,39 +191,6 @@
     font-size: 14px;
   }
 
-  .card-show-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-}
-
-.card-request {
-  display: flex;
-  justify-content: space-between;
-  background-color: $white;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 12px;
-  height: 120px;
-
-  .details-request {
-    padding-top: 8px;
-    font-weight: 400;
-    line-height: 0.7;
-
-  }
-}
-
-.user-request {
-
-  .avatar-request img, img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 12px;
-    margin-bottom: 8px;
-  }
 }
 
 @media(max-width: 1600px) {
