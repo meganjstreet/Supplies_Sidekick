@@ -1,29 +1,21 @@
 class SuppliesController < ApplicationController
   before_action :authenticate_user!
-  def index
 
+  def index
     if params[:query].present?
       @supplies = Supply.where('name ILIKE ?', "%#{params[:query]}%")
     else
       @supplies = Supply.all
     end
 
-    @map_supplies = Supply.geocoded
-    @markers = @map_supplies.map do |supply|
+    @markers = @supplies.map do |supply|
       {
-        lat: supply.latitude,
-        lng: supply.longitude,
+        lat: supply.geocode[0],
+        lng: supply.geocode[1],
         info_window_html: render_to_string(partial: "info_window", locals: {supply: supply}),
         marker_html: render_to_string(partial: "marker")
       }
     end
-  end
-  
-  def search
-    if params[:query].present?
-      @query = params[:query]
-    end
-    @search_supplies = Supply.joins()
   end
 
   def new
