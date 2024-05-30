@@ -1,34 +1,68 @@
-<div class="container mt-3">
-  <h3>All Supplies </h3>
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Looking for anything?" aria-label="Supply name" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-      <button class="btn btn-outline-warning" type="button">Button</button>
+<div class="banner mb-4">
+  <div>
+    <h2>Quicky get your supplies</h2>
+    <p><strong>"Road to success is always under Construction"</strong></p>
+  </div>
+</div>
+
+<div class="container mt-1">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: supplies_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a keyword" %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 
-
-  <div class="cards">
-    <% @supplies.each do |supply|%>
-    <div class="card-home">
-        <% if supply.photo.attached? %>
-          <div class="card-home-image">
-            <%= cl_image_tag supply.photo.key%>
-          </div>
-        <% else %>
+  <% if @supplies.any? %>
+    <h3>Search Results</h3>
+    <div class="cards">
+      <% @supplies.each do |supply| %>
+        <div class="card-home">
+          <% if supply.photo.attached? %>
+            <div class="card-home-image">
+              <%= cl_image_tag supply.photo.key %>
+            </div>
+          <% else %>
             <img src=<%= supply.img_url.start_with?('http') ? supply.img_url : asset_path(supply.img_url) %> class="card-home-image">
-        <% end %>
-      <div class="card-home-body">
-        <div class="card-home-content">
-          <h5 class="card-home-title"><%= supply.name%></h5>
-          <p class="card-home-text"><%= supply.description %></p>
+          <% end %>
+          <div class="card-home-body">
+            <div class="card-home-content">
+              <h5 class="card-home-title"><%= supply.name %></h5>
+              <p class="card-home-text"><%= supply.description %></small></p>
+            </div>
+            <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100 text-white" %>
+          </div>
         </div>
-        <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100 text-white"%>
-
+      <% end %>
     </div>
+
+  <% elsif params[:query].present? %>
+    <div class="alert alert-info">
+      No results found for "<%= params[:query] %>"
     </div>
-    <% end %>
-
-
-  </div>
+  <% else %>
+    <h3>Latest Supplies</h3>
+    <div class="cards">
+      <% @latest_supplies.each do |supply| %>
+        <div class="card-home">
+          <% if supply.photo.attached? %>
+            <div class="card-home-image">
+              <%= cl_image_tag supply.photo.key %>
+            </div>
+          <% else %>
+            <img src=<%= supply.img_url.start_with?('http') ? supply.img_url : asset_path(supply.img_url) %> class="card-home-image">
+          <% end %>
+          <div class="card-home-body">
+            <div class="card-home-content">
+              <h5 class="card-home-title"><%= supply.name %></h5>
+              <p class="card-home-text"><%= supply.description %></small></p>
+            </div>
+            <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100 text-white" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

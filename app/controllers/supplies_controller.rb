@@ -1,8 +1,18 @@
 class SuppliesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @supplies = Supply.all
+    if params[:query].present?
+      @supplies = Supply.where('name ILIKE ?', "%#{params[:query]}%")
+    else
+      @supplies = Supply.all
+    end
+  end
 
+  def search
+    if params[:query].present?
+      @query = params[:query]
+    end
+    @search_supplies = Supply.joins()
   end
 
   def new
