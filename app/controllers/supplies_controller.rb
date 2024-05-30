@@ -3,10 +3,11 @@ class SuppliesController < ApplicationController
 
   def index
     if params[:query].present?
-      @supplies = Supply.where('name ILIKE ?', "%#{params[:query]}%")
+      @supplies = Supply.geocoded.where('name ILIKE ?', "%#{params[:query]}%")
     else
-      @supplies = Supply.all
+      @supplies = Supply.geocoded
     end
+
 
     @markers = @supplies.each_with_object([]) do |supply, markers|
       if supply.geocode.present?
@@ -18,7 +19,7 @@ class SuppliesController < ApplicationController
         }
       end
     end
-  end
+
 
   def new
     @supply = Supply.new
