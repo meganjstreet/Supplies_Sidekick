@@ -37,10 +37,13 @@
     <% @offers.each do |offer| %>
 
       <div class="card-offer mb-3">
-      <% if offer.photo.attached? %>
-
-      <% else %>
-      <% end %>
+      <% if offer.supply.photo.attached? %>
+            <div class="card-offer-img">
+              <%= cl_image_tag offer.supply.photo.key%>
+            </div>
+          <% else %>
+              <img src=<%= offer.supply.img_url.start_with?('http') ? offer.supply.img_url : asset_path(offer.supply.img_url) %> class="card-offer-img">
+          <% end %>
 
       <div class="card-offer-infos">
         <div class="offer-head">
