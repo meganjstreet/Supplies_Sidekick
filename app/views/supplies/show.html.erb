@@ -14,9 +14,7 @@
               <h5 class="card-show-title"><%= @supply.name%></h5>
               <p class="btn btn-outline-warning">qty: <%= @supply.quantity %></p>
             </div>
-
             <p class="card-show-text"><%= @supply.description %></p>
-
           </div>
           <div class="card-user">
             <p>posted by <%= @supply.user.first_name + " " + @supply.user.last_name %></p>
@@ -32,14 +30,9 @@
     </div>
   </div>
 </div>
-
-
-
   <% if @user != @supply.user %>
   <%= render "offers/form", supply: @supply, offer: @offer %>
   <% end %>
-
-
   <% if @user === @supply.user %>
     <div class="container">
       <h3>Offers on your Supply</h3>

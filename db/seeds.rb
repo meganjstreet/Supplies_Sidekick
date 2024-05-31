@@ -37,7 +37,6 @@ Offer.create(amount: 170, details:"Got Galvanised Hoop Iron, In a good condition
 Offer.create(amount: 700, details:"1 year old Scaffold hoists", user: User.find_by(first_name: "Nolu"), supply: Supply.find_by(name:" Scaffold hoists"))
 Offer.create(amount: 830, details:"Looking for PPR Pipes ,Fitting and Coupling for my New Bathroom", user: User.find_by(first_name:"Luvo"), supply: Supply.find_by(name: "PPR Pipes, Fittings and Coupling"))
 
-
 puts "Supplies seeded!"
 
 # img_url: "homepage-banner.jpg

@@ -3,7 +3,6 @@ class OffersController < ApplicationController
     @supply = Supply.find(params[:supply_id])
     @offer = Offer.new
   end
-
   def create
     @supply = Supply.find(params[:supply_id])
     @offer = Offer.new(offer_params)
@@ -15,33 +14,41 @@ class OffersController < ApplicationController
       render :new, status: :unprocessible_entity
     end
   end
-
   def show
     @offer = Offer.find(params[:id])
   end
-
   def accept
     @offer = Offer.find(params[:id])
     @offer.status = "accepted"
     @offer.save!
     redirect_to supplies_path
   end
-
   def decline
     @offer = Offer.find(params[:id])
     @offer.status = "declined"
       @offer.save!
     redirect_to supplies_path
   end
-
   # def update
   #   @offer = Offer.find(params[:id])
   #   @offer.
   # end
-
   private
-
   def offer_params
     params.require(:offer).permit(:amount, :details)
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
