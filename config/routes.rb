@@ -21,7 +21,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get "offers/:id/request", to: "pages#request"
-
   get "dashboard", to: "pages#dashboard"
 end

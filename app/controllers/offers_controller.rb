@@ -33,11 +33,8 @@ class OffersController < ApplicationController
     redirect_to supply_path(@offer.supply)
   end
 
-  def request
-    @offer = Offer.find(params[:id])
-  end
-
   private
+
   def offer_params
     params.require(:offer).permit(:amount, :details)
   end
