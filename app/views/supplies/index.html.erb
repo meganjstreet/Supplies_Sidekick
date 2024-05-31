@@ -1,8 +1,9 @@
-
 <div style="width: 100vw; height: 40vh;"
   data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-map-url-value="<%= markers_supplies_path %>">
+</div>
+
 <div class="container">
 
 <div class="container mt-1">

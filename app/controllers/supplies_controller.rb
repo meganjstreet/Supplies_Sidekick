@@ -1,24 +1,33 @@
 class SuppliesController < ApplicationController
-  before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    if params[:query].present?
-      @supplies = Supply.where('name ILIKE ?', "%#{params[:query]}%")
-    else
-      @supplies = Supply.all
-    end
+    @supplies = if params[:query].present?
+                  Supply.where('name ILIKE ?', "%#{params[:query]}%")
+                else
+                  Supply.all
+                end
+  end
+
+  def markers
+    @supplies = if params[:query].present?
+                  Supply.where('name ILIKE ?', "%#{params[:query]}%")
+                else
+                  Supply.all
+                end
 
     @markers = @supplies.each_with_object([]) do |supply, markers|
       if supply.geocode.present?
       markers << {
-          lat: supply.geocode[0],
-          lng: supply.geocode[1],
-          info_window_html: render_to_string(partial: "info_window", locals: {supply: supply}),
-          marker_html: render_to_string(partial: "marker")
-        }
+                    lat: supply.geocode[0],
+                    lng: supply.geocode[1],
+                    info_window_html: render_to_string(partial: "info_window", locals: {supply: supply}),
+                    marker_html: render_to_string(partial: "marker")
+                  }
       end
     end
+
+    render json: @markers.compact
   end
 
   def new

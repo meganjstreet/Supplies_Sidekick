@@ -14,41 +14,28 @@ class OffersController < ApplicationController
       render :new, status: :unprocessible_entity
     end
   end
+
   def show
     @offer = Offer.find(params[:id])
   end
+
   def accept
     @offer = Offer.find(params[:id])
     @offer.status = "accepted"
     @offer.save!
-    redirect_to supplies_path
+    redirect_to supply_path(@offer.supply)
   end
+
   def decline
     @offer = Offer.find(params[:id])
     @offer.status = "declined"
-      @offer.save!
-    redirect_to supplies_path
+    @offer.save!
+    redirect_to supply_path(@offer.supply)
   end
-  # def update
-  #   @offer = Offer.find(params[:id])
-  #   @offer.
-  # end
+
   private
+
   def offer_params
     params.require(:offer).permit(:amount, :details)
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-

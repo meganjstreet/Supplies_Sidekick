@@ -1,4 +1,6 @@
 <div class="container">
+
+
   <div class="card-show-container mt-3">
     <div class="card-show mb-3 w-60">
       <% if @supply.photo.attached? %>
@@ -12,7 +14,7 @@
           <div class="card-show-content">
             <div class="card-show-head d-flex justify-content-between mb-2">
               <h5 class="card-show-title"><%= @supply.name%></h5>
-              <p class="btn btn-outline-warning">qty: <%= @supply.quantity %></p>
+              <p class="badge-qty text-center">QTY: <%= @supply.quantity %></p>
             </div>
             <p class="card-show-text"><%= @supply.description %></p>
           </div>
@@ -36,13 +38,15 @@
   <% if @user === @supply.user %>
     <div class="container">
       <h3>Offers on your Supply</h3>
-      <% if @supply.offers.count == 0 %>
+      <% if @supply.offers.where(status: "pending").count == 0 %>
         <div class="alert alert-warning">
-          You don't have any offers on this supply yet!
+          You don't have any pending offers on this supply!
         </div>
-      <% else %>
+      <% end %>
+      <% if @supply.offers.count != 0 %>
         <% @supply.offers.each do |offer| %>
           <% if offer.status == "pending" %>
+          <h4>Pending</h4>
           <div class="card-request mb-3 p-3">
             <div class="text-request">
             <div class="user-request d-flex">
@@ -65,7 +69,14 @@
               <%= link_to "Decline", decline_offer_path(offer), data: {turbo_method: :patch}, class: "btn btn-danger text-white" %>
             </div>
           </div>
+          <% elsif offer.status == "accepted" %>
+            <h4>Accepted</h4>
+            <div class="alert alert-secondary">
+            You have accepted <%= offer.user.first_name %>'s offer! Contact them at (<%= offer.user.email %>) to arrange pick-up and payment!
+            </div>
           <% end %>
+
+
         <% end %>
       <% end %>
       </div>
