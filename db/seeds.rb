@@ -16,7 +16,7 @@ puts "Making some supplies seeds"
 
 User.create(first_name: "Meg", last_name: "Street", address: "89 Geneva Drive, Camps Bay, Cape Town", email: "meganjstreet@gmail.com", password:"secret", avatar_url:"user.png")
 User.create(first_name: "Nolu", last_name: "Ncamiso", address: "Gugulethu ny119 street no6", email: "nncamiso30108@gmail.com", password:"secret",avatar_url:"profile.png")
-User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"profile(1).png")
+User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"profile (1).png")
 User.create(first_name: "Tools", last_name: "Mavalentiya", address: " Phillip village,Cape Town", email: "Athule@gmail.com", password:"secret", avatar_url:"tools.png")
 
 
