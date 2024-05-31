@@ -26,8 +26,9 @@
           <h5 class="card-home-title"><%= supply.name%></h5>
           <p class="card-home-text"><%= supply.description %></small></p>
         </div>
-        <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100 text-white"%>
-
+        <div class="container-btn">
+          <%= link_to "View Details", supply_path(supply), class: "btn btn-warning w-100 text-white"%>
+        </div>
     </div>
     </div>
     <% end %>
