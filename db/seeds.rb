@@ -29,7 +29,7 @@ Supply.create(name: "Screwdriver set", description: "screwdriver set in good con
 Supply.create(name: "Scaffold hoists", description: "Scaffold hoists set in good condition", address: "15 Beach Rd, Strand, Cape Town", img_url: "https://www.hoistandaccess.com/assets/uploads/images/equipment/scaffold-hoist-3.jpg", price:750, quantity:4380, user: User.find_by(first_name: "Meg") )
 Supply.create(name: "Plastic Rebar spacers", description: "Plastic Rebar spacers set in good condition", address: "50 Long Street, Cape Town", img_url: "rebar.jpg", price:280, quantity:6990, user: User.find_by(first_name: "Nolu") )
 Supply.create(name: "Galvanised Hoop Iron", description: "Galvanised Hoop Iron set in good condition", address: "Bill Bezuidenhout Avenue, Cape Town", img_url:"hoops.jpg", price:30, quantity:2540, user: User.find_by(first_name: "Meg"))
-Supply.create(name: "PPR Pipes, Fittings and Coupling", description: "PPR Pipes, Fittings and Coupling set in good condition", address: "Jakes Gerwel Drive, Athlone, Cape Town", img_url: "pprpipes.jpg", price:189.99, quantity:2890, user: User.find_by(first_name: "Nolu"))
+Supply.create(name: "PPR Pipes, Fittings and Coupling", description: "PPR Pipes, Fittings and Coupling set in good condition", address: "Cape Town", img_url: "pprpipes.jpg", price:189.99, quantity:2890, user: User.find_by(first_name: "Nolu"))
 
 Offer.create(amount: 750, details:"Can I have Wood Planks", user: User.find_by(first_name: "Nolu"), supply: Supply.find_by(name: "Wood Planks"))
 Offer.create(amount: 380, details:"Can I have White Paint", user: User.find_by(first_name: "Meg"), supply: Supply.find_by(name: "Paint"))
