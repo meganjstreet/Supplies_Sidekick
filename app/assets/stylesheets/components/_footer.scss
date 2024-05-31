@@ -1,3 +1,8 @@
+// .footer-container {
+//   position: fixed;
+//   bottom: 0;
+// }
+
 .footer {
   display: flex;
   justify-content: center;
@@ -14,6 +19,8 @@
   }
 }
 footer-menu{
+  position: fixed;
+  bottom: 0;
   float: left;
     margin-top: 30px;
 }
