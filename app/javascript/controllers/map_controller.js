@@ -1,34 +1,35 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl' // Don't forget this!
-
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    url: String // Add a new value to hold the markers URL
   }
-
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-
-
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/dark-v10"
-
     })
-
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    this.markersValue = []
+    this.#fetchMarkers()
   }
-
+  #fetchMarkers() {
+    fetch(this.urlValue)
+      .then(response => response.json())
+      .then(data => {
+        this.markersValue = data
+        this.#addMarkersToMap()
+        this.#fitMapToMarkers()
+      })
+  }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-
       // Create a HTML element for your custom marker
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
-
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
@@ -36,7 +37,6 @@ export default class extends Controller {
         .addTo(this.map)
     })
   }
-
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
