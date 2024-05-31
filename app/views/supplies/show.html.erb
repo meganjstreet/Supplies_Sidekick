@@ -13,7 +13,11 @@
         <div class="card-show-body">
           <div class="card-show-content">
             <div class="card-show-head d-flex justify-content-between mb-2">
+            <div class="title-address">
               <h5 class="card-show-title"><%= @supply.name%></h5>
+              <p><%= @supply.address %></p>
+            </div>
+
               <p class="badge-qty text-center">QTY: <%= @supply.quantity %></p>
             </div>
             <p class="card-show-text"><%= @supply.description %></p>
