@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
+
+  skip_before_action :authenticate_user!, only: :home
+
   def home
     @latest_supplies = Supply.order(created_at: :desc).limit(4) # Fetch the latest 4 supplies
   end

@@ -16,7 +16,7 @@ puts "Making some supplies seeds"
 
 User.create(first_name: "Meg", last_name: "Street", address: "89 Geneva Drive, Camps Bay, Cape Town", email: "meganjstreet@gmail.com", password:"secret", avatar_url:"user.png")
 User.create(first_name: "Nolu", last_name: "Ncamiso", address: "Gugulethu ny119 street no6", email: "nncamiso30108@gmail.com", password:"secret",avatar_url:"profile.png")
-User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"profile(1).png")
+User.create(first_name: "Luvo", last_name: "Sapa", address: "Kraaifotain wallacedene,france street 27360", email: "sapaluvo@gmail.com", password:"secret", avatar_url:"profile (1).png")
 User.create(first_name: "Tools", last_name: "Mavalentiya", address: " Phillip village,Cape Town", email: "Athule@gmail.com", password:"secret", avatar_url:"tools.png")
 
 
@@ -36,7 +36,6 @@ Offer.create(amount: 380, details:"Can I have White Paint", user: User.find_by(f
 Offer.create(amount: 170, details:"Got Galvanised Hoop Iron, In a good condition", user: User.find_by(first_name: "Luvo"), supply: Supply.find_by(name:"Galvanised Hoop Iron"))
 Offer.create(amount: 700, details:"1 year old Scaffold hoists", user: User.find_by(first_name: "Nolu"), supply: Supply.find_by(name:" Scaffold hoists"))
 Offer.create(amount: 830, details:"Looking for PPR Pipes ,Fitting and Coupling for my New Bathroom", user: User.find_by(first_name:"Luvo"), supply: Supply.find_by(name: "PPR Pipes, Fittings and Coupling"))
-
 
 puts "Supplies seeded!"
 

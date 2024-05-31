@@ -5,14 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
@@ -27,7 +22,6 @@
               <%= link_to "All Supplies", supplies_path, class: "nav-link" %>
             </li>
               <% if current_user %>
-
                 <li class="nav-item">
                   <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
                 </li>
@@ -38,9 +32,7 @@
                     </div>
                   <% else %>
                     <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%= current_user.avatar_url.start_with?('http') ? current_user.avatar_url : asset_path(current_user.avatar_url) %>/>
-
                   <% end %>
-
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/supplies/new">Sell Supplies</a>
                     <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
@@ -58,5 +50,4 @@
         </div>
       </div>
     </div>
-
     <%= yield %>
