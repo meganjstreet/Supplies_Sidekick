@@ -27,7 +27,7 @@ class SuppliesController < ApplicationController
     @user = current_user
     @supply.user = @user
     if @supply.save!
-      redirect_to supplies_path
+      redirect_to supply_path(@supply)
     else
       render :new, status: :unprocessible_entity
     end

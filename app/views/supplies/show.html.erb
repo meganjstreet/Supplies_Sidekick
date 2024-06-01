@@ -21,6 +21,7 @@
               <p class="badge-qty text-center">QTY: <%= @supply.quantity %></p>
             </div>
             <p class="card-show-text"><%= @supply.description %></p>
+            <p class="card-show-price text-white bg-secondary py-1">Price: R<%= number_with_precision(@supply.price, precision: 2) %></p>
           </div>
           <div class="card-user">
             <p>posted by <%= @supply.user.first_name + " " + @supply.user.last_name %></p>
